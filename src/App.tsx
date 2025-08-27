@@ -12,7 +12,7 @@ import { navLinks, socialLinks } from "./data/navigationData";
 function App() {
 	return (
 		<>
-			<Nav links={navLinks} socialLinks={socialLinks} />
+			<Nav links={navLinks} />
 			<Hero />
 			<About />
 			<Services items={services} />

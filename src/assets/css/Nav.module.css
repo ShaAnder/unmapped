@@ -106,8 +106,9 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		/* optional */
-		flex-wrap: wrap;
+	}
+	.nav-links {
+		margin-left: auto;
 	}
 	.nav-header {
 		padding: 0 0;

@@ -1,13 +1,12 @@
 import { useRef, useEffect } from "react";
 import styles from "../assets/css/Nav.module.css";
-import type { NavLink, SocialLink } from "../types/domain/navigation";
+import type { NavLink } from "../types/domain/navigation";
 
 type NavProps = {
 	links: NavLink[];
-	socialLinks: SocialLink[];
 };
 
-export const Nav = ({ links, socialLinks }: NavProps) => {
+export const Nav = ({ links }: NavProps) => {
 	// set up our refs
 	const btnRef = useRef<HTMLButtonElement>(null);
 	const linksRef = useRef<HTMLUListElement>(null);
@@ -36,17 +35,17 @@ export const Nav = ({ links, socialLinks }: NavProps) => {
 
 		// add event listeners
 		btn.addEventListener("click", onToggle);
-		
+
 		// add click listeners to all nav links
-		const navLinks = links.querySelectorAll('a');
-		navLinks.forEach(link => {
+		const navLinks = links.querySelectorAll("a");
+		navLinks.forEach((link) => {
 			link.addEventListener("click", onLinkClick);
 		});
 
 		// cleanup function
 		return () => {
 			btn.removeEventListener("click", onToggle);
-			navLinks.forEach(link => {
+			navLinks.forEach((link) => {
 				link.removeEventListener("click", onLinkClick);
 			});
 		};
@@ -58,7 +57,11 @@ export const Nav = ({ links, socialLinks }: NavProps) => {
 			<nav className={styles.navbar}>
 				<div className={styles["nav-center"]}>
 					<div className={styles["nav-header"]}>
-						<a href="#home" className={styles["nav-logo"]} aria-label="unMapped - Return to homepage">
+						<a
+							href="#home"
+							className={styles["nav-logo"]}
+							aria-label="unMapped - Return to homepage"
+						>
 							<span className={styles["nav-logo-un"]}>un</span>
 							<span className={styles["nav-logo-mapped"]}>Mapped</span>
 						</a>
@@ -78,22 +81,6 @@ export const Nav = ({ links, socialLinks }: NavProps) => {
 							<li key={link.id}>
 								<a href={link.href} className={styles["nav-link"]}>
 									{link.label}
-								</a>
-							</li>
-						))}
-					</ul>
-
-					<ul className={styles["nav-icons"]}>
-						{socialLinks.map((social) => (
-							<li key={social.platform}>
-								<a
-									href={social.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={styles["nav-icon"]}
-									aria-label={social.label}
-								>
-									<i className={social.icon}></i>
 								</a>
 							</li>
 						))}

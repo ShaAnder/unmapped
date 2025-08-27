@@ -12,8 +12,8 @@
 	flex-wrap: wrap;
 }
 
-/* 2x2 grid for footer links on larger screens */
-@media screen and (min-width: 576px) {
+/* 2x2 grid for footer links on smaller screens only */
+@media screen and (min-width: 576px) and (max-width: 767px) {
 	.footer-links {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -23,14 +23,30 @@
 		justify-items: center;
 	}
 }
+
+/* Single row for larger screens */
+@media screen and (min-width: 768px) {
+	.footer-links {
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+		margin-bottom: 1.5rem;
+	}
+}
 .footer-link {
 	color: var(--clr-grey-2);
 	text-transform: capitalize;
 	font-size: 1rem;
-	margin-right: 1.5rem;
 	letter-spacing: var(--spacing);
 	transition: var(--transition);
 	font-weight: 500;
+}
+
+/* Add margin only for mobile flex layout */
+@media screen and (max-width: 575px) {
+	.footer-link {
+		margin-right: 1.5rem;
+	}
 }
 
 /* XS Mobile adjustments */
