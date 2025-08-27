@@ -20,6 +20,13 @@
 	font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* XS Mobile adjustments for nav logo */
+@media screen and (max-width: 375px) {
+	.nav-logo {
+		font-size: 1.2rem;
+	}
+}
+
 .nav-logo-un {
 	color: #222222;
 }
@@ -74,7 +81,7 @@
 	position: fixed;
 	top: 4rem;
 	left: 0;
-	width: 100vw;
+	width: 100%;
 	z-index: 1000;
 }
 .show-links {

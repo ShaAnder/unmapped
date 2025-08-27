@@ -11,6 +11,18 @@
 	margin-bottom: 1.5rem;
 	flex-wrap: wrap;
 }
+
+/* 2x2 grid for footer links on larger screens */
+@media screen and (min-width: 576px) {
+	.footer-links {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		max-width: 400px;
+		margin: 0 auto 1.5rem auto;
+		justify-items: center;
+	}
+}
 .footer-link {
 	color: var(--clr-grey-2);
 	text-transform: capitalize;
@@ -19,6 +31,26 @@
 	letter-spacing: var(--spacing);
 	transition: var(--transition);
 	font-weight: 500;
+}
+
+/* XS Mobile adjustments */
+@media screen and (max-width: 375px) {
+	.footer {
+		padding: 2rem 1rem 1.5rem 1rem;
+	}
+	.footer-link {
+		font-size: 0.8rem;
+		margin-right: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	.footer-icon {
+		font-size: 1.4rem;
+		margin-right: 1rem;
+	}
+	.copyright {
+		font-size: 0.7rem;
+		line-height: 1.4;
+	}
 }
 .footer-link:hover {
 	color: var(--clr-primary-5);

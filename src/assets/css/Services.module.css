@@ -19,6 +19,24 @@
 	margin-right: auto;
 }
 
+/* XS Mobile adjustments */
+@media screen and (max-width: 375px) {
+	.service {
+		margin-bottom: 2rem;
+		padding: 0 0.5rem;
+	}
+	.service-icon {
+		font-size: 1.6rem;
+		padding: 0.4rem;
+		margin-bottom: 1rem;
+	}
+	.service-text {
+		max-width: 18rem;
+		font-size: 0.8rem;
+		line-height: 1.4;
+	}
+}
+
 /* Mobile/Desktop toggle */
 .desktop-services {
 	display: none;
