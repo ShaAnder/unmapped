@@ -10,19 +10,19 @@ export const navLinks: NavLink[] = [
 export const socialLinks: SocialLink[] = [
 	{
 		platform: "facebook",
-		url: "https://facebook.com/unmapped",
+		url: "https://facebook.com/",
 		icon: "fab fa-facebook",
 		label: "Follow us on Facebook",
 	},
 	{
 		platform: "twitter",
-		url: "https://twitter.com/unmapped",
+		url: "https://twitter.com/",
 		icon: "fab fa-twitter",
 		label: "Follow us on Twitter",
 	},
 	{
 		platform: "instagram",
-		url: "https://instagram.com/unmapped",
+		url: "https://instagram.com/",
 		icon: "fab fa-instagram",
 		label: "Follow us on Instagram",
 	},
