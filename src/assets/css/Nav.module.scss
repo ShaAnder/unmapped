@@ -1,3 +1,6 @@
+@use "./_mixins.scss" as m;
+@use "./_tokens.scss" as t;
+
 .navbar {
 	position: fixed;
 	top: 0;
@@ -52,9 +55,9 @@
 	color: var(--clr-primary-5);
 	cursor: pointer;
 	transition: var(--transition);
-}
-.nav-toggle:hover {
-	transform: scale(1.2);
+	&:hover {
+		transform: scale(1.2);
+	}
 }
 .nav-link {
 	display: block;
@@ -65,11 +68,14 @@
 	color: var(--clr-grey-1);
 	cursor: pointer;
 	font-size: 1rem;
-}
-.nav-link:hover {
-	color: var(--clr-primary-1);
-	background: var(--clr-primary-8);
-	padding-left: 2.25rem;
+	&:hover {
+		color: var(--clr-primary-1);
+		background: var(--clr-primary-8);
+		padding-left: 2.25rem;
+	}
+	&:focus-visible {
+		@include m.focus-ring();
+	}
 }
 /* nav toggle functionality */
 .nav-links {
@@ -88,7 +94,7 @@
 	height: 280px;
 }
 /* nav at bigger screen size */
-@media screen and (min-width: 992px) {
+@include m.respond(lg) {
 	/* hide nav toggle button */
 	.nav-toggle {
 		display: none;
@@ -101,40 +107,38 @@
 		width: auto;
 		background: transparent;
 		box-shadow: none;
+		margin-left: auto;
 	}
 	.nav-center {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-	.nav-links {
-		margin-left: auto;
-	}
 	.nav-header {
 		padding: 0 0;
 	}
 	.nav-link {
 		padding: 0 0;
-	}
-	.nav-link:hover {
-		padding: 0;
-		color: var(--clr-primary-5);
-		background: transparent;
+		margin-right: t.$space-lg;
+		&:hover {
+			padding: 0;
+			color: var(--clr-primary-5);
+			background: transparent;
+		}
+		&:focus-visible {
+			@include m.focus-ring();
+		}
 	}
 	.nav-icons {
 		display: flex;
 	}
-
-	.nav-link {
-		margin-right: 1.5rem;
-	}
 	.nav-icon {
-		margin-right: 0.7rem;
+		margin-right: t.$space-sm + 0.2rem;
 		color: var(--clr-primary-5);
 		font-size: 1.2rem;
 		transition: var(--transition);
-	}
-	.nav-icon:hover {
-		color: var(--clr-primary-8);
+		&:hover {
+			color: var(--clr-primary-8);
+		}
 	}
 }

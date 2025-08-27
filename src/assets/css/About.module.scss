@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .about-img,
 .about-info {
 	margin: 1rem;
@@ -14,10 +16,10 @@
 	padding-bottom: 0.25rem;
 	display: inline-block;
 	margin-top: 1rem;
-}
-.btn:hover {
-	color: var(--clr-primary-8);
-	border-color: var(--clr-primary-8);
+	&:hover {
+		color: var(--clr-primary-8);
+		border-color: var(--clr-primary-8);
+	}
 }
 
 /* XS Mobile adjustments */

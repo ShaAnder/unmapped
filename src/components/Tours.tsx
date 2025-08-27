@@ -1,4 +1,4 @@
-import style from "../assets/css/Tours.module.css";
+import style from "../assets/css/Tours.module.scss";
 import type { TourData } from "../types/domain/tour";
 import { Tour } from "./Tour";
 

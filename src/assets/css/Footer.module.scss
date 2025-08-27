@@ -1,3 +1,5 @@
+@use "./_mixins.scss" as m;
+
 .footer {
 	background: var(--clr-primary-10);
 	text-align: center;
@@ -40,6 +42,13 @@
 	letter-spacing: var(--spacing);
 	transition: var(--transition);
 	font-weight: 500;
+	&:hover {
+		color: var(--clr-primary-5);
+		transform: translateY(-2px);
+	}
+	&:focus-visible {
+		@include m.focus-ring();
+	}
 }
 
 /* Add margin only for mobile flex layout */
@@ -68,19 +77,15 @@
 		line-height: 1.4;
 	}
 }
-.footer-link:hover {
-	color: var(--clr-primary-5);
-	transform: translateY(-2px);
-}
 .footer-icon {
 	font-size: 1.8rem;
 	margin-right: 1.5rem;
 	color: var(--clr-primary-5);
 	transition: var(--transition);
-}
-.footer-icon:hover {
-	color: var(--clr-primary-7);
-	transform: translateY(-3px) scale(1.1);
+	&:hover {
+		color: var(--clr-primary-7);
+		transform: translateY(-3px) scale(1.1);
+	}
 }
 .copyright {
 	text-transform: capitalize;
@@ -90,7 +95,7 @@
 	margin-top: 2rem;
 	padding-top: 1.5rem;
 	border-top: 1px solid var(--clr-primary-8);
-}
-.copyright span {
-	margin-left: 0.5rem;
+	span {
+		margin-left: 0.5rem;
+	}
 }

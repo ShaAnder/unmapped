@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import styles from "../assets/css/Nav.module.css";
+import styles from "../assets/css/Nav.module.scss";
 import type { NavLink } from "../types/domain/navigation";
 
 type NavProps = {

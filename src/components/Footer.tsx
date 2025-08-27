@@ -1,4 +1,4 @@
-import style from "../assets/css/Footer.module.css";
+import style from "../assets/css/Footer.module.scss";
 import type { NavLink, SocialLink } from "../types/domain/navigation";
 
 type FooterProps = {

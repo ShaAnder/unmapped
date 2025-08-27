@@ -2,33 +2,24 @@
 
 **Core Framework**
 
-- React 19 with TypeScript for type-safe component architecture
-- Vite for optimized development experience and production builds
-- SCSS Modules for scoped, maintainable styling with enhanced CSS features
+SCSS Modules for scoped, maintainable styling. I migrated from plain CSS to SCSS
+Modules early in the project as a learning exercise and kept building on that
+foundation.
 
 **Why These Choices?**
 
-- TypeScript provides compile-time type safety and enhanced developer experience
-- SCSS Modules combine the benefits of CSS Modules with powerful preprocessing
-  capabilities
-- Vite offers superior development performance and modern build optimizationic
-  tour portfolio built with modern web tech. Think of it as your digital trail
-  guide to exploring the beauty of responsive design and TypeScript
-  craftsmanship.
+capabilities tour portfolio built with modern web tech. Think of it as your
+digital trail guide to exploring the beauty of responsive design and TypeScript
+craftsmanship.
 
 ## Live Site
 
 Check it out:
-[https://shaander.github.io/unmapped](https://shaander.github.io/unmapped)
-
-## Project Origins
-
-This project was created as Project 1 of the Comprehensive React Projects Course
-by John Smilga. However, as a seasoned developer, I chose to completely rebuild
-the project from scratch using modern TypeScript React and SCSS, implementing
+[https://shaander.github.io/unmapped](https://shaander.github.io/unmapped) This
+project was created as Project 1 of the Comprehensive React Projects Course by
+John Smilga. However, as a seasoned developer, I chose to completely rebuild the
+project from scratch using modern TypeScript React and SCSS, implementing
 industry best practices and adding my own design system. The result is a fully
-overhauled, accessibility-compliant application that maintains the core
-conceptual foundation while showcasing contemporary development standards.
 
 ## What's This About?
 
@@ -47,13 +38,13 @@ accessibility compliance, and maintainable code architecture.
 **Core Framework**
 
 - React 19 with TypeScript for bulletproof component architecture
-- Vite for lightning-fast development and optimized builds
-- CSS Modules for scoped, maintainable styling
+- Vite for lightning-fast development and optimized builds – SCSS Modules for
+  scoped, maintainable styling
 
 **Why These Choices?**
 
-- TypeScript because life's too short for runtime type errors
-- CSS Modules because global CSS is like hiking without a map (chaotic)
+- TypeScript because life's too short for runtime type errors – SCSS Modules
+  because global CSS is like hiking without a map (chaotic)
 - Vite because waiting for builds is like watching paint dry on a rainy camping
   trip
 

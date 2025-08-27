@@ -1,0 +1,16 @@
+// Shared SCSS tokens for layout and responsive rules
+$container-max: 1170px;
+
+// Named breakpoints for optional respond() usage
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1170px,
+);
+
+// Spacing scale (extend as needed)
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;

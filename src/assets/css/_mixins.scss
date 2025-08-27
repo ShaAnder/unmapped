@@ -1,0 +1,38 @@
+@use "sass:map";
+@use "./_tokens.scss" as tokens;
+
+// Media query helper: @include respond(lg) { ... }
+@mixin respond($bp) {
+	@media (min-width: map.get(tokens.$breakpoints, $bp)) {
+		@content;
+	}
+}
+
+// Centered container helper used across grids/sections
+@mixin container {
+	width: min(tokens.$container-max, 92vw);
+	margin-inline: auto;
+}
+
+// Accessible focus ring for interactive elements
+@mixin focus-ring($color: var(--clr-primary-5)) {
+	outline: none;
+	box-shadow: 0 0 0 3px color-mix(in oklab, #ffffff 30%, $color 70%);
+}
+
+// Visually-hidden content for screen-reader-only text
+@mixin visually-hidden {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+
+// Vertical stack spacing between direct children
+@mixin stack($gap) {
+	> * + * {
+		margin-top: $gap;
+	}
+}

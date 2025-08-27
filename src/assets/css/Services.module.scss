@@ -1,3 +1,5 @@
+@use "./_mixins.scss" as m;
+
 .services {
 	background: var(--clr-grey-10);
 }
@@ -61,10 +63,13 @@
 	transition: var(--transition);
 	border-bottom: 2px solid var(--clr-primary-5);
 	padding-bottom: 0.25rem;
-}
-.see-more-link:hover {
-	color: var(--clr-primary-8);
-	border-color: var(--clr-primary-8);
+	&:hover {
+		color: var(--clr-primary-8);
+		border-color: var(--clr-primary-8);
+	}
+	&:focus-visible {
+		@include m.focus-ring();
+	}
 }
 
 @media screen and (min-width: 576px) {
@@ -84,7 +89,7 @@
 		display: none;
 	}
 }
-@media screen and (min-width: 992px) {
+@include m.respond(lg) {
 	.desktop-services {
 		grid-template-columns: 1fr 1fr 1fr;
 	}

@@ -1,9 +1,10 @@
+@use "./_mixins.scss" as m;
+
 .grid {
 	display: grid;
 	gap: 1.5rem;
 	/* center and constrain */
-	width: min(1200px, 92vw);
-	margin-inline: auto;
+	@include m.container;
 }
 
 /* Mobile grid: 1 column */
@@ -22,8 +23,7 @@
 .see-more {
 	text-align: center;
 	margin-top: 2rem;
-	width: min(1200px, 92vw);
-	margin-inline: auto;
+	@include m.container;
 }
 .see-more-link {
 	color: var(--clr-primary-5);
@@ -34,10 +34,10 @@
 	transition: var(--transition);
 	border-bottom: 2px solid var(--clr-primary-5);
 	padding-bottom: 0.25rem;
-}
-.see-more-link:hover {
-	color: var(--clr-primary-8);
-	border-color: var(--clr-primary-8);
+	&:hover {
+		color: var(--clr-primary-8);
+		border-color: var(--clr-primary-8);
+	}
 }
 
 /* 1 col mobile, 2 cols tablet, 3 cols desktop */
@@ -70,10 +70,10 @@
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-}
-.tour-card:hover {
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-	transform: scale(1.02);
+	&:hover {
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+		transform: scale(1.02);
+	}
 }
 .tour-img-container {
 	position: relative;
@@ -100,14 +100,14 @@
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
-}
-.tour-title p,
-.tour-title h4 {
-	margin-bottom: 0.75rem;
-	line-height: 1.25;
-}
-.tour-title p {
-	color: var(--clr-grey-7);
+	p,
+	h4 {
+		margin-bottom: 0.75rem;
+		line-height: 1.25;
+	}
+	p {
+		color: var(--clr-grey-7);
+	}
 }
 /* end of additional css for different layout*/
 .tour-footer {
@@ -115,15 +115,15 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	align-items: center;
-}
-.tour-footer p {
-	line-height: 0;
-	margin-bottom: 0;
-	text-transform: capitalize;
-	color: var(--clr-primary-5);
-}
-.tour-footer p span {
-	margin-right: 0.25rem;
+	p {
+		line-height: 0;
+		margin-bottom: 0;
+		text-transform: capitalize;
+		color: var(--clr-primary-5);
+		span {
+			margin-right: 0.25rem;
+		}
+	}
 }
 .tour-btn {
 	text-align: center;

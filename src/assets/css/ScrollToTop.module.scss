@@ -19,21 +19,16 @@
 	opacity: 0;
 	visibility: hidden;
 	z-index: 1000;
-}
-
-.scrollToTop:hover {
-	background: var(--clr-primary-7);
-	transform: translateY(0) scale(1.1);
+	&:hover {
+		background: var(--clr-primary-7);
+		transform: translateY(0) scale(1.1);
+	}
 }
 
 .scrollToTop.visible {
 	transform: translateY(0);
 	opacity: 1;
 	visibility: visible;
-}
-
-/* Add a subtle animation when appearing */
-.scrollToTop.visible {
 	animation: slideUp 0.3s ease-out;
 }
 

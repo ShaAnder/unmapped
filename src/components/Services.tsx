@@ -1,4 +1,4 @@
-import style from "../assets/css/Services.module.css";
+import style from "../assets/css/Services.module.scss";
 import type { ServiceData } from "../types/domain/service";
 
 type Props = { items: ServiceData[] };
