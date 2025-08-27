@@ -1,14 +1,16 @@
 import { useRef, useEffect } from "react";
 import styles from "../assets/css/Nav.module.css";
+import type { NavLink, SocialLink } from "../types/domain/navigation";
 
-import logo from "../assets/images/logo.png";
+type NavProps = {
+	links: NavLink[];
+	socialLinks: SocialLink[];
+};
 
-// strongly typed guarded navbar
-
-export const Nav = () => {
+export const Nav = ({ links, socialLinks }: NavProps) => {
 	// set up our refs
 	const btnRef = useRef<HTMLButtonElement>(null);
-	const linksRef = useRef<HTMLElement>(null);
+	const linksRef = useRef<HTMLUListElement>(null);
 
 	// use effect to check current refs
 	useEffect(() => {
@@ -18,16 +20,36 @@ export const Nav = () => {
 		if (!btn || !links) return;
 
 		// on click handler to check for "show-links" and toggles if found / not found, also adds semantic aria tags
-		const onClick = () => {
-			const showClass = styles.showLinks;
+		const onToggle = () => {
+			const showClass = styles["show-links"];
 			const nextOpen = !links.classList.contains(showClass);
 			links.classList.toggle(showClass);
 			btn.setAttribute("aria-expanded", String(nextOpen));
 		};
 
-		// add and remove the event listener as needed
-		btn.addEventListener("click", onClick);
-		return () => btn.removeEventListener("click", onClick);
+		// close menu when a link is clicked
+		const onLinkClick = () => {
+			const showClass = styles["show-links"];
+			links.classList.remove(showClass);
+			btn.setAttribute("aria-expanded", "false");
+		};
+
+		// add event listeners
+		btn.addEventListener("click", onToggle);
+		
+		// add click listeners to all nav links
+		const navLinks = links.querySelectorAll('a');
+		navLinks.forEach(link => {
+			link.addEventListener("click", onLinkClick);
+		});
+
+		// cleanup function
+		return () => {
+			btn.removeEventListener("click", onToggle);
+			navLinks.forEach(link => {
+				link.removeEventListener("click", onLinkClick);
+			});
+		};
 	}, []);
 
 	// nav jsx
@@ -36,69 +58,45 @@ export const Nav = () => {
 			<nav className={styles.navbar}>
 				<div className={styles["nav-center"]}>
 					<div className={styles["nav-header"]}>
-						<img src={logo} className={styles["nav-logo"]} alt="unMapped" />
+						<a href="#home" className={styles["nav-logo"]} aria-label="unMapped - Return to homepage">
+							<span className={styles["nav-logo-un"]}>un</span>
+							<span className={styles["nav-logo-mapped"]}>Mapped</span>
+						</a>
 						<button
+							ref={btnRef}
 							type="button"
 							className={styles["nav-toggle"]}
-							id={styles["nav-toggle"]}
+							aria-controls="nav-links"
+							aria-expanded="false"
+							aria-label="Toggle navigation menu"
 						>
 							<i className="fas fa-bars"></i>
 						</button>
 					</div>
-					<ul className={styles["nav-links"]} id={styles["nav-links"]}>
-						<li>
-							<a href="#home" className={styles["nav-link"]}>
-								home
-							</a>
-						</li>
-
-						<li>
-							<a href="#about" className={styles["nav-link"]}>
-								about
-							</a>
-						</li>
-
-						<li>
-							<a href="#services" className={styles["nav-link"]}>
-								services
-							</a>
-						</li>
-
-						<li>
-							<a href="#tours" className={styles["nav-link"]}>
-								tours
-							</a>
-						</li>
+					<ul ref={linksRef} className={styles["nav-links"]} id="nav-links">
+						{links.map((link) => (
+							<li key={link.id}>
+								<a href={link.href} className={styles["nav-link"]}>
+									{link.label}
+								</a>
+							</li>
+						))}
 					</ul>
 
 					<ul className={styles["nav-icons"]}>
-						<li>
-							<a
-								href="https://www.twitter.com"
-								target="_blank"
-								className={styles["nav-icon"]}
-							>
-								<i className="fab fa-facebook"></i>
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.twitter.com"
-								target="_blank"
-								className={styles["nav-icon"]}
-							>
-								<i className="fab fa-twitter"></i>
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.twitter.com"
-								target="_blank"
-								className={styles["nav-icon"]}
-							>
-								<i className="fab fa-squarespace"></i>
-							</a>
-						</li>
+						{socialLinks.map((social) => (
+							<li key={social.platform}>
+								<a
+									href={social.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={styles["nav-icon"]}
+									aria-label={social.label}
+								>
+									<i className={social.icon}></i>
+								</a>
+							</li>
+						))}
 					</ul>
 				</div>
 			</nav>

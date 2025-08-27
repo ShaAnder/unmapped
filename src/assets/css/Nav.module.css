@@ -13,6 +13,20 @@
 .nav-icons {
 	display: none;
 }
+.nav-logo {
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-decoration: none;
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+.nav-logo-un {
+	color: #222222;
+}
+
+.nav-logo-mapped {
+	color: var(--clr-primary-7);
+}
 .nav-center {
 	width: 90vw;
 	max-width: 1170px;
@@ -55,6 +69,13 @@
 	height: 0;
 	overflow: hidden;
 	transition: var(--transition);
+	background: var(--clr-white);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	position: fixed;
+	top: 4rem;
+	left: 0;
+	width: 100vw;
+	z-index: 1000;
 }
 .show-links {
 	height: 280px;
@@ -69,6 +90,10 @@
 	.nav-links {
 		height: auto;
 		display: flex;
+		position: static;
+		width: auto;
+		background: transparent;
+		box-shadow: none;
 	}
 	.nav-center {
 		display: flex;
@@ -93,7 +118,7 @@
 	}
 
 	.nav-link {
-		margin-right: 0.7rem;
+		margin-right: 1.5rem;
 	}
 	.nav-icon {
 		margin-right: 0.7rem;

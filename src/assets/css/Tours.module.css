@@ -1,0 +1,130 @@
+.grid {
+	display: grid;
+	gap: 1.5rem;
+	/* center and constrain */
+	width: min(1200px, 92vw);
+	margin-inline: auto;
+}
+
+/* Mobile grid: 1 column */
+.mobile-tours .grid,
+.desktop-tours .grid {
+	grid-template-columns: 1fr;
+}
+
+/* Mobile/Desktop toggle */
+.desktop-tours {
+	display: none;
+}
+.mobile-tours {
+	display: block;
+}
+.see-more {
+	text-align: center;
+	margin-top: 2rem;
+	width: min(1200px, 92vw);
+	margin-inline: auto;
+}
+.see-more-link {
+	color: var(--clr-primary-5);
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: capitalize;
+	letter-spacing: var(--spacing);
+	transition: var(--transition);
+	border-bottom: 2px solid var(--clr-primary-5);
+	padding-bottom: 0.25rem;
+}
+.see-more-link:hover {
+	color: var(--clr-primary-8);
+	border-color: var(--clr-primary-8);
+}
+
+/* 1 col mobile, 2 cols tablet, 3 cols desktop */
+@media (min-width: 640px) {
+	.desktop-tours .grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.mobile-tours .grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	/* Show desktop version on tablets and up */
+	.desktop-tours {
+		display: block;
+	}
+	.mobile-tours {
+		display: none;
+	}
+}
+@media (min-width: 1024px) {
+	.desktop-tours .grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.tour-card {
+	transition: var(--transition);
+	background: var(--clr-grey-10);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	margin-bottom: 2rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.tour-card:hover {
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	transform: scale(1.02);
+}
+.tour-img-container {
+	position: relative;
+}
+.tour-img {
+	height: 15rem;
+	object-fit: cover;
+}
+.tour-date {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: var(--clr-primary-8);
+	color: var(--clr-primary-1);
+	text-transform: capitalize;
+	padding: 0.25rem 0.5rem;
+	margin-bottom: 0;
+}
+.tour-info {
+	padding: 1.25rem 1.5rem;
+}
+/* additional css for different layout*/
+.tour-title {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.tour-title p,
+.tour-title h4 {
+	margin-bottom: 0.75rem;
+	line-height: 1.25;
+}
+.tour-title p {
+	color: var(--clr-grey-7);
+}
+/* end of additional css for different layout*/
+.tour-footer {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.tour-footer p {
+	line-height: 0;
+	margin-bottom: 0;
+	text-transform: capitalize;
+	color: var(--clr-primary-5);
+}
+.tour-footer p span {
+	margin-right: 0.25rem;
+}
+.tour-btn {
+	text-align: center;
+}
